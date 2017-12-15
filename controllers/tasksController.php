@@ -22,18 +22,18 @@ class tasksController extends http\controller
 
     public static function all()
     {
-        $records = todos::findAll();
-        /*session_start();
+        //$records = todos::findAll();
+        session_start();
            if(key_exists('userID',$_SESSION)) {
                $userID = $_SESSION['userID'];
            } else {
 
-               echo 'you must be logged in to view tasks';
+               header("Location: index.php?page=homepage&action=show");
            }
         $userID = $_SESSION['userID'];
 
         $records = todos::findTasksbyID($userID);
-        */
+        
         self::getTemplate('all_tasks', $records);
 
     }
