@@ -21,7 +21,10 @@
 //this is how you print something  $data contains the record that was selected on the table.
 
 print_r($data);
+date_default_timezone_set('EST');
+
 $edit = false;
+
 if(!empty($data))
 {
 	$edit = true;
@@ -36,7 +39,7 @@ if($edit == true)
 	<form action="index.php?page=tasks&action=edit&id=<?php echo $data->id; ?>" method="post">
 		Todo Title/body:: <input type="text" name="message" value="<?php echo $data->message; ?>"><br>
 
-	    Todo complete: <input type="text" name="isdone" value="<?php echo $data->isdone; ?>"><br>
+	    Todo complete: <input type="text" name="isdone" value="<?php echo $data->isdone; ?>" pattern="[0|1]"><br>
 	    Date created: <input type="text" name="createddate" value="<?php echo $data->createddate; ?>"><br>
 	    Date updated: <input type="text" name="duedate" value="<?php echo $data->duedate; ?>"><br>
 	    <button type="submit">Update</button>
@@ -52,9 +55,9 @@ else {
 <form action="index.php?page=tasks&action=create" method="post">
 	Todo Title/body: <input type="text" name="message"><br>
 
-    Todo complete: <input type="text" name="isdone"><br>
-    Date created: <input type="text" name="createddate"><br>
-    Date updated: <input type="text" name="duedate"><br>
+    Todo complete: <input type="text" name="isdone" maxlength="1" size="4" pattern="[0|1]" title="It can have 0 or 1 only"><br>
+    Date created: <input type="text" name="createddate" value="<?php echo date("Y-m-d h:i:sa"); ?>"><br>
+    Date updated: <input type="text" name="duedate" value="<?php echo date("Y-m-d h:i:sa"); ?>"><br>
     <button type="submit">Create</button>
 </form>
 <?php 

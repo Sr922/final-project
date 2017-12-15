@@ -20,17 +20,20 @@ class htmlTable
             $tableGen .= '<th>' . $heading . '</th>';
         }
         $tableGen .= '<th></th>';
+        $tableGen .= '<th></th>';
         $tableGen .= '</tr>';
         foreach ($array as $record) {
             $tableGen .= '<tr>';
             foreach ($record as $key => $value) {
                 if ($key == 'id') {
-                    $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">View</a></td>';
+                    $id = $value;
+                    $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">'. $value .'</a></td>';
                 } else {
                     $tableGen .= '<td>' . $value . '</td>';
                 }
             }
-            $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=delete&id=' . $value . '">Delete</a></td>';
+            $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=edit&id=' . $id . '">Edit</a></td>';
+            $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=delete&id=' . $id . '">Delete</a></td>';
             $tableGen .= '</tr>';
         }
 

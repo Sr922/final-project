@@ -91,6 +91,7 @@ class tasksController extends http\controller
         $record->owneremail = accounts::getEmail($userID);
 
         echo $record->owneremail;
+        echo $record->createddate;
         $record->save();
 
         header("Location: index.php?page=tasks&action=all");

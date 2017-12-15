@@ -21,11 +21,11 @@
 <form action="index.php?page=accounts&action=register" method="post">
     First name: <input type="text" name="fname"><br>
     Last name: <input type="text" name="lname"><br>
-    Email: <input type="text" name="email"><br>
+    Email: <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Invalid email id"><br>
     Phone: <input type="text" name="phone"><br>
     Birthday: <input type="text" name="birthday"><br>
     Gender: <input type="text" name="gender"><br>
-    Password: <input type="password" name="password"><br>
+    Password: <input type="password" name="password" pattern=".{6,}" title="Password must be at least 6 characters"><br>
     <input type="submit" value="Submit form">
 </form>
 
