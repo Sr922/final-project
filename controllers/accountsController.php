@@ -148,4 +148,10 @@ class accountsController extends http\controller
 
     }
 
+    public static function logout()
+    {
+        session_destroy();
+        header("Location: index.php?page=homepage&action=show");
+    }
+
 }

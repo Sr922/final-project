@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+<h6><a href="index.php?page=accounts&action=logout">Logout</a></h6>
 <?php
 //this is how you print something
 
