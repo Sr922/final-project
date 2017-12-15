@@ -30,23 +30,34 @@ if(!empty($data))
 
 <h6><a href="index.php?page=accounts&action=logout">Logout</a></h6>
 
-<form action="index.php?page=tasks&action=create" method="post">
+<?php
+if($edit == true)
+{?>
+	<form action="index.php?page=tasks&action=edit&id=<?php echo $data->id; ?>" method="post">
+		Todo Title/body:: <input type="text" name="message" value="<?php echo $data->message; ?>"><br>
 
-    Todo Title/body: <input type="text" name="message"><br>
+	    Todo complete: <input type="text" name="isdone" value="<?php echo $data->isdone; ?>"><br>
+	    Date created: <input type="text" name="createddate" value="<?php echo $data->createddate; ?>"><br>
+	    Date updated: <input type="text" name="duedate" value="<?php echo $data->duedate; ?>"><br>
+	    <button type="submit">Update</button>
+	</form>
+	<form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?>" method="post" id="form1">
+	    <button type="submit" form="form1" value="delete">Delete</button>
+	</form>
+<?php
+}
+else {
+
+?>	
+<form action="index.php?page=tasks&action=create" method="post">
+	Todo Title/body: <input type="text" name="message"><br>
 
     Todo complete: <input type="text" name="isdone"><br>
-    Todo: Date created: <input type="text" name="createddate"><br>
-    Todo: date updated: <input type="text" name="duedate"><br>
+    Date created: <input type="text" name="createddate"><br>
+    Date updated: <input type="text" name="duedate"><br>
     <button type="submit">Create</button>
 </form>
-
-<?php
-if($edit == true){
-?>
-	<form action="index.php?page=tasks&action=delete&id=<?php $data['id'] ?> " method="post" id="form1">
-	    <button type="submit" form="form1" value="delete">Delete</button>
-	</form>	
-<?php
+<?php 
 }
 ?>
 <h6><a href="index.php?page=tasks&action=all">Back</a></h6>

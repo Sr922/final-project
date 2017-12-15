@@ -84,7 +84,7 @@ class tasksController extends http\controller
             header("Location: index.php?page=homepage&action=show");
         }
         $userID = $_SESSION['userID'];
-        if(isset($_POST['id']) == 1){
+        if(isset($_REQUEST['id']) == 1){
             $record = todos::findOne($_REQUEST['id']);
         }
         else {

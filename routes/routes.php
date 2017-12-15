@@ -174,6 +174,24 @@ class routes
         $route->method = 'store';
         $routes[] = $route;
 
+        //EDIT TASK - GET
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'edit';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'edit';
+        $routes[] = $route;
+
+        //EDIT TASK - POST
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'edit';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'store';
+        $routes[] = $route;
+        
         return $routes;
     }
 
