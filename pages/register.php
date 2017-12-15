@@ -19,8 +19,8 @@
 
 
 <form action="index.php?page=accounts&action=register" method="post">
-    First name: <input type="text" name="fname"><br>
-    Last name: <input type="text" name="lname"><br>
+    First name: <input type="text" name="fname" pattern=".{1,}" title="First name must have at least 1 character"><br>
+    Last name: <input type="text" name="lname" pattern=".{1,}" title="Last name must have at least 1 character"><br>
     Email: <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Invalid email id"><br>
     Phone: <input type="text" name="phone"><br>
     Birthday: <input type="text" name="birthday"><br>

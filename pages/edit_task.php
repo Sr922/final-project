@@ -53,7 +53,7 @@ else {
 
 ?>	
 <form action="index.php?page=tasks&action=create" method="post">
-	Todo Title/body: <input type="text" name="message"><br>
+	Todo Title/body: <input type="text" name="message" pattern=".{2,}" title="Message must have at least 2 characters"><br>
 
     Todo complete: <input type="text" name="isdone" maxlength="1" size="4" pattern="[0|1]" title="It can have 0 or 1 only"><br>
     Date created: <input type="text" name="createddate" value="<?php echo date("Y-m-d h:i:sa"); ?>"><br>
