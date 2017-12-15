@@ -16,9 +16,14 @@
 </head>
 
 <body>
+<?php 
+	$userID = $_SESSION['userID'];
+?>
 <h6><a href="index.php?page=accounts&action=logout">Logout</a></h6>
 
 <h6><a href="index.php?page=tasks&action=create">Create Task</a></h6>
+
+<h6><a href="index.php?page=accounts&action=edit&id=<?php echo $userID; ?>">Edit Profile</a></h6>
 
 <?php
 //this is how you print something

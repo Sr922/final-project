@@ -31,7 +31,7 @@ print_r($data);
 
     Last name: <input type="text" name="lname" value="<?php echo $data->lname; ?>"><br>
     Email: <input type="text" name="email" value="<?php echo $data->email; ?>"><br>
-    Password: <input type="text" name="phone" value="<?php echo $data->Password; ?>"><br>
+    Password: <input type="text" name="phone" value="<?php echo $data->password; ?>"><br>
     <input type="submit" value="Submit form">
 </form>
 
