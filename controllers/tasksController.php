@@ -43,10 +43,21 @@ class tasksController extends http\controller
     //you should check the notes on the project posted in moodle for how to use active record here
 
     public static function create()
-    {
+    {   
+        session_start();
+       if(key_exists('userID',$_SESSION)) {
+           $userID = $_SESSION['userID'];
+       } else {
+
+           header("Location: index.php?page=homepage&action=show");
+       }
+        $userID = $_SESSION['userID'];
+        echo $userID;
         print_r($_POST);
+        self::getTemplate('edit_task');
     }
 
+    
     //this is the function to view edit record form
     public static function edit()
     {
