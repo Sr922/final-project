@@ -19,11 +19,21 @@
 <?php 
 	$userID = $_SESSION['userID'];
 ?>
-<h6><a href="index.php?page=accounts&action=logout">Logout</a></h6>
+<div class="header">
+	Welcome <?php echo $_SESSION["userFname"]; ?>
+</div>
+<div>
+	<div style="width: 100%;float: right;">
+		<div style="float: right;width: 50%;"><h6><a href="index.php?page=accounts&action=logout">Logout</a></h6></div>
+		<div style="float: right;width: 50%;"><h6><a href="index.php?page=accounts&action=edit&id=<?php echo $userID; ?>">Edit Profile</a></h6></div>
+	</div>
+</div>
 
-<h6><a href="index.php?page=tasks&action=create">Create Task</a></h6>
+<div style="width: 100%;">
+	<h6><a href="index.php?page=tasks&action=create">Create Task</a></h6>
+</div>
 
-<h6><a href="index.php?page=accounts&action=edit&id=<?php echo $userID; ?>">Edit Profile</a></h6>
+	
 
 <?php
 //this is how you print something
