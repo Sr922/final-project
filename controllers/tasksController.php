@@ -45,12 +45,12 @@ class tasksController extends http\controller
     public static function create()
     {   
         session_start();
-       if(key_exists('userID',$_SESSION)) {
-           $userID = $_SESSION['userID'];
-       } else {
+        if(key_exists('userID',$_SESSION)) {
+            $userID = $_SESSION['userID'];
+        } else {
 
-           header("Location: index.php?page=homepage&action=show");
-       }
+            header("Location: index.php?page=homepage&action=show");
+        }
         $userID = $_SESSION['userID'];
         echo $userID;
         print_r($_POST);
@@ -72,10 +72,35 @@ class tasksController extends http\controller
     {
 
 
-        $record = todos::findOne($_REQUEST['id']);
-        $record->body = $_REQUEST['body'];
-        $record->save();
+        // $record = todos::findOne($_REQUEST['id']);
+        // $record->body = $_REQUEST['body'];
+        // $record->save();
         print_r($_POST);
+        session_start();
+        if(key_exists('userID',$_SESSION)) {
+            $userID = $_SESSION['userID'];
+        } else {
+
+            header("Location: index.php?page=homepage&action=show");
+        }
+        $userID = $_SESSION['userID'];
+        if(isset($_POST['id']) == 1){
+            $record = todos::findOne($_REQUEST['id']);
+        }
+        else {
+            $record = new todo();
+        }
+        $record->message = $_POST['message'];
+        $record->isdone = $_POST['isdone'];
+        $record->createddate = $_POST['createddate'];
+        $record->duedate = $_POST['duedate'];
+        $record->ownerid = $userID;
+        $record->owneremail = accounts::getEmail($userID);
+
+        echo $record->owneremail;
+        $record->save();
+
+        header("Location: index.php?page=tasks&action=all");
 
     }
 
