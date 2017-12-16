@@ -55,16 +55,15 @@ class accountsController extends http\controller
             //Turn the set password function into a static method on a utility class.
             $user->password = $user->setPassword($_POST['password']);
             echo $user->password;
-            $user->save();
-
+            $userID = $user->save();
             //you may want to send the person to a
             // login page or create a session and log them in
             // and then send them to the task list page and a link to create tasks
             session_start();
-            // $_SESSION["userID"] = $user->id;
-            // $_SESSION["userFname"] = $user->fname;
-            // $_SESSION["userLname"] = $user->lname;
-            // $_SESSION["userEmail"] = $user->email;
+            $_SESSION["userID"] = $userID;
+            $_SESSION["userFname"] = $user->fname;
+            $_SESSION["userLname"] = $user->lname;
+            $_SESSION["userEmail"] = $user->email;
             header("Location: index.php?page=tasks&action=all");
 
         } else {
