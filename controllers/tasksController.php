@@ -64,10 +64,6 @@ class tasksController extends http\controller
     public static function store()
     {
 
-
-        // $record = todos::findOne($_REQUEST['id']);
-        // $record->body = $_REQUEST['body'];
-        // $record->save();
         print_r($_POST);
         session_start();
         if(key_exists('userID',$_SESSION)) {

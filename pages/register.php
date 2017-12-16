@@ -19,13 +19,16 @@
 
 
 <form action="index.php?page=accounts&action=register" method="post">
-    First name: <input type="text" name="fname" pattern=".{1,}" title="First name must have at least 1 character"><br>
-    Last name: <input type="text" name="lname" pattern=".{1,}" title="Last name must have at least 1 character"><br>
-    Email: <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Invalid email id"><br>
-    Phone: <input type="text" name="phone"><br>
-    Birthday: <input type="text" name="birthday"><br>
-    Gender: <input type="text" name="gender"><br>
-    Password: <input type="password" name="password" pattern=".{6,}" title="Password must be at least 6 characters"><br>
+    First name: <input type="text" name="fname" pattern=".{1,}" title="First name must have at least 1 character" required><br>
+    Last name: <input type="text" name="lname" pattern=".{1,}" title="Last name must have at least 1 character" required><br>
+    Email: <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Invalid email id" required><br>
+    Phone: <input type="text" name="phone" maxlength="10" size="10" pattern="[0-9]+$" title="Invalid Phone Number"><br>
+    Birthday: <input type="date" name="birthday"><br>
+    Gender: <!-- <input type="text" name="gender"><br> -->&nbsp;&nbsp;
+    <input type="radio" name="gender" value="male" checked> Male&nbsp;&nbsp;
+    <input type="radio" name="gender" value="female"> Female&nbsp;&nbsp;
+    <input type="radio" name="gender" value="other"> Other<br>
+    Password: <input type="password" name="password" pattern=".{6,}" title="Password must be at least 6 characters" required><br>
     <input type="submit" value="Submit form">
 </form>
 
