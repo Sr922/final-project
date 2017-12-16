@@ -23,6 +23,7 @@ abstract class model
         }
         $db = dbConn::getConnection();
         $statement = $db->prepare($sql);
+        
         $array = get_object_vars($this);
 
         if ($INSERT == TRUE) {
@@ -54,8 +55,16 @@ abstract class model
         $tableName = $modelName::getTablename();
         $array = get_object_vars($this);
         unset($array['id']);
-        $columnString = implode(',', array_flip($array));
-        $valueString = ':' . implode(',:', array_flip($array));
+        $columnString ='';
+        $valueString = '';
+        foreach ($array as $key => $value) {
+            if($key != 'id' && $key != 'tableName'){
+                $columnString = $columnString . $key . ",";
+                $valueString = $valueString . "'" .$value . "',";
+            }
+        }
+        $columnString = rtrim($columnString, ',');
+        $valueString = rtrim($valueString, ',');
         $sql = 'INSERT INTO ' . $tableName . ' (' . $columnString . ') VALUES (' . $valueString . ')';
         return $sql;
     }
