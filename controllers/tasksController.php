@@ -89,7 +89,6 @@ class tasksController extends http\controller
         echo $record->owneremail;
         echo $record->createddate;
         $record->save();
-
         header("Location: index.php?page=tasks&action=all");
 
     }
